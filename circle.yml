@@ -1,9 +1,11 @@
 machine:
-  service:
+  services:
     - docker
+
 dependency:
   overider:
-    - docker build -t vuetify
+    - docker info
+    - docker build -t vuetify .
 
 test:
   overrider:

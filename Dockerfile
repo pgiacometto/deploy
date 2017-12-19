@@ -30,6 +30,14 @@ WORKDIR /var/www/html/
 RUN ls
 RUN npm install
 
+# Latest Ubuntu Firefox, Google Chrome, XVFB and JRE installs
+RUN apt-get update -qqy \
+  && apt-get -qqy install \
+    xvfb \
+    firefox=45.0.2+build1-0ubuntu1 \
+    google-chrome-stable \
+    default-jre
+
 COPY ./docker/docker-run.sh /docker-run.sh
 EXPOSE 80
 
