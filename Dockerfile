@@ -36,6 +36,6 @@ RUN npm install
 
 
 COPY ./docker/docker-run.sh /docker-run.sh
-EXPOSE 80 8080
+EXPOSE 80 8080 4444
 
 CMD ["/bin/bash", "docker-run.sh"]
