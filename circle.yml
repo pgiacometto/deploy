@@ -1,0 +1,10 @@
+machine:
+  service:
+    - docker
+dependency:
+  overider:
+    - docker build -t vuetify
+
+test:
+  overrider:
+    - docker run vuetify npm test
