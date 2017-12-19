@@ -11,6 +11,8 @@ RUN npm -v
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get install -y php7.0-fpm
+# Latest Ubuntu Firefox, Google Chrome, XVFB and JRE installs
+RUN apt-get install -y default-jre
 # Remove the default Nginx configuration file
 
 # Remove the default Nginx configuration file
@@ -27,17 +29,12 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD ./  /var/www/html/
 
 WORKDIR /var/www/html/
-RUN ls
+# RUN ls
 RUN npm install
 
-# Latest Ubuntu Firefox, Google Chrome, XVFB and JRE installs
-RUN apt-get update -qqy \
-  && apt-get -qqy install \
-    xvfb \
-    firefox=45.0.2+build1-0ubuntu1 \
-    default-jre
+
 
 COPY ./docker/docker-run.sh /docker-run.sh
-EXPOSE 80
+EXPOSE 80 8080
 
 CMD ["/bin/bash", "docker-run.sh"]
