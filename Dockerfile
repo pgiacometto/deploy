@@ -14,6 +14,7 @@ RUN apt-get install -y nginx
 RUN apt-get install -y php7.0-fpm
 # Latest Ubuntu Firefox, Google Chrome, XVFB and JRE installs
 RUN apt-get install -y default-jre
+RUN apt-get install -y default-jdk
 
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
