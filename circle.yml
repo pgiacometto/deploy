@@ -9,4 +9,4 @@ dependencies:
 
 test:
   override:
-    - docker run vuetify npm test
+    - docker run vuetify npm run unit
